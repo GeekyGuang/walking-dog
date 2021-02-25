@@ -1,25 +1,25 @@
-let message = 
-`abcdefghijklmn
-sdkskjs
-sjdkjjsjkdk`
+import csstext from './style.js'
 
 let n = 0
-let message2 = ''
-let root = document.querySelector('#root')
+let message = ''
+let text = document.querySelector('#text')
+let ani_text = document.querySelector('#ani-text')
 
 let showMessage = ()=>{
     setTimeout(()=>{
-      if(message[n] === '\n' ) {
-          message2 += '<br/>'
-      } else if(message[n] === ' ') {
-          message2 += '&nbsp'
+      if(csstext[n] === '\n' ) {
+          message += '<br/>'
+      } else if(csstext[n] === ' ') {
+          message += '&nbsp'
       } else {
-          message2 += message[n]
+          message += csstext[n]
       }
-      root.innerHTML = message2
+      text.innerHTML = message
+      ani_text.innerHTML = csstext.substring(0, n)
+      
       n += 1
 
-      if (n < message.length){
+      if (n < csstext.length){
           showMessage()
       }
     },100)

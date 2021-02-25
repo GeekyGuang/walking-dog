@@ -117,33 +117,50 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
-var message = "abcdefghijklmn\nsdkskjs\nsjdkjjsjkdk";
+})({"style.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var csstext = "sdkjsakjs\nsjaskdjk\nskjdjsdjs\n";
+var _default = csstext;
+exports.default = _default;
+},{}],"main.js":[function(require,module,exports) {
+"use strict";
+
+var _style = _interopRequireDefault(require("./style.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var n = 0;
-var message2 = '';
-var root = document.querySelector('#root');
+var message = '';
+var text = document.querySelector('#text');
+var ani_text = document.querySelector('#ani-text');
 
 var showMessage = function showMessage() {
   setTimeout(function () {
-    if (message[n] === '\n') {
-      message2 += '<br/>';
-    } else if (message[n] === ' ') {
-      message2 += '&nbsp';
+    if (_style.default[n] === '\n') {
+      message += '<br/>';
+    } else if (_style.default[n] === ' ') {
+      message += '&nbsp';
     } else {
-      message2 += message[n];
+      message += _style.default[n];
     }
 
-    root.innerHTML = message2;
+    text.innerHTML = message;
+    ani_text.innerHTML = _style.default.substring(0, n);
     n += 1;
 
-    if (n < message.length) {
+    if (n < _style.default.length) {
       showMessage();
     }
   }, 100);
 };
 
 showMessage();
-},{}],"../../../AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./style.js":"style.js"}],"../../../AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -171,7 +188,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "6671" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2840" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
